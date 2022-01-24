@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { shaxaContext } from './context';
 
 const Count = () => {
-    const {count} = useContext(shaxaContext)
+    const [state, dispatch] = useContext(shaxaContext);
     return <div>
-        {count}
+        {state}
         <hr />
   </div>;
 };

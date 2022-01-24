@@ -1,32 +1,17 @@
-import React, {createContext, useState} from 'react';
+import React, { createContext, useReducer } from 'react';
+import { shaxaReducer } from './reducer';
 
 export const shaxaContext = createContext();
 
-const Context = ({children}) => {
-    const [count, setCount] = useState(0);
-    const [name, setName] = useState('');
+const Context = ({ children }) => {
 
-const AddOne = () => {
-  setCount(count + 1);
-};
-
-const AddFive = () => {
-  setCount(count + 5);
-    };
+    const [state, dispatch] = useReducer(shaxaReducer, 0);
     
-    const ChangeTitle = (e) => {
-        setName(e.target.value)
-    };
-
-    const AddNum = () => {
-        setCount(count + +name)
-    }
-
-
-
-    return <shaxaContext.Provider value={{count, AddOne, AddFive, name, ChangeTitle, AddNum}} >
+  return (
+    <shaxaContext.Provider value={[state, dispatch]}>
       {children}
-  </shaxaContext.Provider>;
+    </shaxaContext.Provider>
+  );
 };
 
 export default Context;
