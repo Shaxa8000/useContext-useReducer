@@ -4,7 +4,7 @@ import { shaxaContext } from './context';
 const Count = () => {
     const [state, dispatch] = useContext(shaxaContext);
     return <div>
-        {state}
+        {state.count}
         <hr />
   </div>;
 };

@@ -5,7 +5,10 @@ export const shaxaContext = createContext();
 
 const Context = ({ children }) => {
 
-    const [state, dispatch] = useReducer(shaxaReducer, 0);
+    const [state, dispatch] = useReducer(shaxaReducer, {
+        count: 0,
+        name: ''
+    });
     
   return (
     <shaxaContext.Provider value={[state, dispatch]}>
